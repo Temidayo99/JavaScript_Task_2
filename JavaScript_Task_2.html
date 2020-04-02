@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript Task 2</title>
+</head>
+<body>
+	<script>
+		let data = [
+			{principal: 2500, time: 1.8},
+			{principal: 1000, time: 5},
+			{principal: 3000, time: 1},
+			{principal: 2000, time: 3}
+		]
+
+	function interestCalculator (x) {      
+		//function declaration
+			var rate;
+			var interest;
+			var y = data.length;
+
+			//Getting Rates
+			for (i=0;i<y;i++){
+				if (x[i].principal>=2500 && 1<x[i].time && x[i].time<3){
+					rate = 3;
+					x[i].rate = 3;
+				}
+				else if (x[i].principal>=2500 && x[i].time>=3) {
+					rate = 4;
+					x[i].rate = 4;
+				}
+				else if (x[i].principal<=2500 || x[i].time<=1) {
+					rate = 2;
+					x[i].rate = 2;
+				}
+				else {
+					rate = 1;
+					x[i].rate = 1;
+				}
+			}
+
+			//Getting Interests
+			for(j=0;j<y;j++){
+				x[j].interest = (x[j].principal * x[j].time * x[j].rate) / 100
+			}
+
+			//Assigning Value to InterestData
+			var interestData = x;
+
+			//Logging and Return
+			console.log(interestData);
+			return interestData;
+		}
+
+		//Calling the Function
+		interestCalculator(data);
+
+	</script>
+</body>
+</html>
